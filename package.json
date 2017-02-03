@@ -1,0 +1,35 @@
+{
+  "name": "simple-grunt-build",
+  "version": "0.0.1",
+  "description": "My project",
+  "devDependencies": {
+    "time-grunt": "1.4.0",
+    "grunt": "1.0.1",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-concurrent": "2.3.1",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-imagemin": "1.0.1",
+    "grunt-contrib-uglify": "2.0.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-sass": "2.0.0",
+    "jit-grunt": "0.10.0",
+    "grunt-contrib-watch": "1.0.0",
+    "load-grunt-config": "0.19.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-cssmin": "1.0.1",
+    "grunt-auto-install": "0.3.1",
+    "grunt-contrib-requirejs": "1.0.0",
+    "grunt-hash": "~0.4.1",
+    "underscore": "~1.8.3"
+  },
+  "dependencies": {
+    "ractive-validator": "3.0.2"
+  },
+  "private": true
+}
+
+
+
+
+
