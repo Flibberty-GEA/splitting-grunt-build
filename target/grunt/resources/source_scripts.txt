@@ -1,3 +1,3 @@
-src/js/main.js
-src/js/partials/app.js
-src/js/partials/button.js
+/js/main.js
+/js/partials/app.js
+/js/partials/button.js

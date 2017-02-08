@@ -1,4 +1,4 @@
-src/test.js
-src/js/main.js
-src/js/partials/app.js
-src/js/partials/button.js
+/test.js
+/js/main.js
+/js/partials/app.js
+/js/partials/button.js

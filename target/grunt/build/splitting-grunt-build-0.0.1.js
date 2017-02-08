@@ -9812,8 +9812,8 @@ if ( !noGlobal ) {
 
 return jQuery;
 }));
-
-/* is empty */
+;
+/* is empty */;
 /* Variables for rotating objects */
 var r = 160;        // radius
 var xoff = 180;     // x offset
@@ -9857,7 +9857,7 @@ function slideLogo(from, to) {
         setTimeout('slideLogo(' + from + ',' + to + ')', 75);
     }
     else {initObjects();}
-}
+};
 window.onload = function () {
     document.getElementById('mybutton').onclick = function () {
         alert('Нажата кнопка');

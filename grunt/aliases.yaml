@@ -1,0 +1,53 @@
+default:
+  description: 'Default (production) build'
+  tasks:
+    - dev
+
+dev:
+  description: 'Development build'
+  tasks:
+    - build
+    - compress
+
+build:
+  description: 'Development build'
+  tasks:
+    - 'clean'
+    - 'gensourceslist'
+    - 'jshint'
+
+compress:
+  description: 'Development build'
+  tasks:
+    - 'concat:compile_js'
+    - 'uglify'
+    - 'concat:vendor_css'
+    - 'hash'
+
+watch:
+  description: 'Development build'
+  tasks:
+    - build
+    - 'delta'
+
+
+#dev:
+#  description: 'Development build'
+#  tasks:
+#    - 'concurrent:devFirst'
+#    - 'concurrent:devSecond'
+#img:
+#  description: 'Image tasks'
+#  tasks:
+#    - 'concurrent:imgFirst'
+#devimg:
+#  description: 'Development build and image tasks'
+#  tasks:
+#    - dev
+#    - img
+#prod:
+#  description: 'Production build'
+#  tasks:
+#    - 'concurrent:prodFirst'
+#    - 'concurrent:prodSecond'
+#    - img
