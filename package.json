@@ -1,5 +1,5 @@
 {
-  "name": "simple-grunt-build",
+  "name": "splitting-grunt-build",
   "version": "0.0.1",
   "description": "My project",
   "devDependencies": {
