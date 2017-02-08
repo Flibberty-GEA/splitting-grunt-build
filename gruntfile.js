@@ -69,17 +69,17 @@ module.exports = function (grunt) {
                 src: ['<%= vendor_files.css %>'],
                 dest: '<%= dirs.build %>/vendor_styles.css'
             },
-            // /**
-            //  * The `build_css` target concatenates compiled CSS and vendor CSS
-            //  * together.
-            //  */
-            // build_css: {
-            //     src: [
-            //         '<%= dirs.build %>/app_styles.min.css',
-            //         '<%= dirs.build %>/vendor_styles.css'
-            //     ],
-            //     dest: '<%= dirs.build %>/<%= meta.artifact %>.min.css'
-            // },
+            /**
+             * The `build_css` target concatenates compiled CSS and vendor CSS
+             * together.
+             */
+            build_css: {
+                src: [
+                    '<%= dirs.build %>/app_styles.min.css',
+                    '<%= dirs.build %>/vendor_styles.css'
+                ],
+                dest: '<%= dirs.build %>/<%= meta.artifact %>.min.css'
+            },
             /**
              * The `compile_js` target is the concatenation of our application source
              * code and all specified vendor source code into a single file.
@@ -127,17 +127,17 @@ module.exports = function (grunt) {
             }
         },
 
-        // requirejs: {
-        //     payment_widget: {
-        //         options: {
-        //             baseUrl: '<%= dirs.payment_widget %>',
-        //             name: 'bower_components/almond/almond',
-        //             include: ['embed'],
-        //             mainConfigFile: '<%= dirs.payment_widget %>/config.js',
-        //             out: '<%= dirs.payment_widget %>/embed.min.js'
-        //         }
-        //     }
-        // },
+        requirejs: {
+            payment_widget: {
+                options: {
+                    baseUrl: '<%= dirs.payment_widget %>',
+                    name: 'bower_components/almond/almond',
+                    include: ['embed'],
+                    mainConfigFile: '<%= dirs.payment_widget %>/config.js',
+                    out: '<%= dirs.payment_widget %>/embed.min.js'
+                }
+            }
+        },
 
         hash: {
             options: {
@@ -178,6 +178,21 @@ module.exports = function (grunt) {
                 ]
             },
 
+            sources_globbing_js: {
+                options: {
+                    srcBasePath: '<%= dirs.src %>', // the base Path you want to remove from the input
+                    destBasePath: '' // the base Path you want to prepend to output
+                },
+                files: [
+                    {
+                        src: [
+                            '<%= app_files_globbing.js %>'
+                        ],
+                        dest: '<%= dirs.resources %>/source_globbing_scripts.txt'
+                    }
+                ]
+            },
+
             sources_css: {
                 options: {
                     srcBasePath: '<%= dirs.src %>'
@@ -186,6 +201,17 @@ module.exports = function (grunt) {
                     {
                         src: ['<%= app_files.css %>'],
                         dest: '<%= dirs.resources %>/source_styles.txt'
+                    }
+                ]
+            },
+            sources_globbing_css: {
+                options: {
+                    srcBasePath: '<%= dirs.src %>'
+                },
+                files: [
+                    {
+                        src: ['<%= app_files_globbing.css %>'],
+                        dest: '<%= dirs.resources %>/source_globbing_styles.txt'
                     }
                 ]
             },
@@ -302,18 +328,36 @@ module.exports = function (grunt) {
     grunt.registerTask('watch', ['build', 'delta']);
 
     grunt.registerMultiTask('gensourceslist', 'Generate a list of sources.', function () {
-        var options = this.options(),
-            destBasePath = options.destBasePath || '';
-
         this.files.forEach(function (fs) {
+            grunt.log.writeln('File "' + fs.src + '" created.');
             var contents = "";
-            fs.orig.src.forEach(function (file) {
-                var out = destBasePath + file.replace(options.srcBasePath, "");
-                contents = contents + out + "\n";
-            });
-
+                    fs.src.forEach(function (filepathh) {
+                        contents = contents + filepathh + "\n";
+                    });
             grunt.file.write(fs.dest, contents);
             grunt.log.writeln("File created: " + fs.dest);
         });
+
     });
+
 };
+
+
+
+
+// grunt.registerMultiTask('gensourceslist', 'Generate a list of sources.', function () {
+//     var options = this.options(),
+//         destBasePath = options.destBasePath || '';
+//
+//     this.files.forEach(function (fs) {
+//         var contents = "";
+//         fs.orig.src.forEach(function (file) {
+//             var out = destBasePath + file.replace(options.srcBasePath, "");
+//             contents = contents + out + "\n";
+//         });
+//
+//         grunt.file.write(fs.dest, contents);
+//         grunt.log.writeln("File created: " + fs.dest);
+//     });
+// });
+

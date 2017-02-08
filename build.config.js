@@ -22,11 +22,35 @@ module.exports = {
     app_files: {
         js: [
             "<%= dirs.src %>/js/main.js",
-            "<%= dirs.src %>/partials/js/app.js",
-            "<%= dirs.src %>/partials/js/button.js"
+            "<%= dirs.src %>/js/partials/fake.js",
+            "<%= dirs.src %>/js/partials/app.js",
+            "<%= dirs.src %>/js/partials/button.js"
+        ],
+        css: [
+            "<%= dirs.src %>/css/app.css",
+            "<%= dirs.src %>/css/firstlevel/first.css",
+            "<%= dirs.src %>/css/firstlevel/secondlevel/second.css"
         ]
     },
 
+    /**
+     * This is a collection of file patterns that refer to our app code (the
+     * stuff in `src/main/webapp/app`). These file paths are used in the configuration of
+     * build tasks. `js` is all project angular javascript, less tests. `jsjq` is
+     * jquery javascript. `tpl` contains our app's template HTML files, `less`
+     * is our main stylesheet, and `jsspec` contains our app's tests.
+     */
+    app_files_globbing: {
+        js: [
+            "<%= dirs.src %>/test.js",
+            "<%= dirs.src %>/js/main.js",
+            "<%= dirs.src %>/js/**/*.js"
+        ],
+        css: [
+            "<%= dirs.src %>/css/**/*.css"
+        ]
+    },
+    //
     /**
      * This is the same as `app_files`, except it contains patterns that
      * reference vendor code (`components/`) that we need to place into the build
