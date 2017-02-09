@@ -24,30 +24,8 @@ compress:
     - 'concat:vendor_css'
     - 'hash'
 
-watch:
-  description: 'Development build'
-  tasks:
-    - build
-    - 'delta'
-
-
-#dev:
+#watch:
 #  description: 'Development build'
 #  tasks:
-#    - 'concurrent:devFirst'
-#    - 'concurrent:devSecond'
-#img:
-#  description: 'Image tasks'
-#  tasks:
-#    - 'concurrent:imgFirst'
-#devimg:
-#  description: 'Development build and image tasks'
-#  tasks:
-#    - dev
-#    - img
-#prod:
-#  description: 'Production build'
-#  tasks:
-#    - 'concurrent:prodFirst'
-#    - 'concurrent:prodSecond'
-#    - img
+#    - build
+#    - 'delta'

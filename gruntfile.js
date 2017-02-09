@@ -13,7 +13,6 @@ module.exports = function (grunt) {
         jitGrunt: true
     });
 
-
     /**
      * Load in our build configuration file.
      */
@@ -23,9 +22,6 @@ module.exports = function (grunt) {
      * This is the configuration object Grunt uses to give each plugin its
      * instructions.
      */
-
-
-
     grunt.initConfig(grunt.util._.extend(taskConfig, userConfig));
 
 
@@ -45,19 +41,6 @@ module.exports = function (grunt) {
         });
     });
 
-
-    // grunt.registerMultiTask('gensourceslist', 'Generate a list of sources.', function () {
-    //     this.files.forEach(function (fs) {
-    //         grunt.log.writeln('File "' + fs.src + '" created.');
-    //         var contents = "";
-    //                 fs.src.forEach(function (filepathh) {
-    //                     contents = contents + filepathh + "\n";
-    //                 });
-    //         grunt.file.write(fs.dest, contents);
-    //         grunt.log.writeln("File created: " + fs.dest);
-    //     });
-    //
-    // });
 };
 
 
